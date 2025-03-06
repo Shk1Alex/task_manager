@@ -26,4 +26,3 @@ if (isset($_GET['id'], $_GET['status'])) {
 
 header('Location: index.php');
 exit;
-?>

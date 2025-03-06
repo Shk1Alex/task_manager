@@ -7,11 +7,13 @@ $tasks = $stmt->fetchAll();
 
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title>Завершенные задачи</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
 </head>
+
 <body>
     <div class="container mt-4">
         <table class="table table-bordered">
@@ -41,4 +43,5 @@ $tasks = $stmt->fetchAll();
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>
