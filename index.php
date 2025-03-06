@@ -1,7 +1,6 @@
 <?php
 require 'db.php';
 
-// Получаем активные задачи
 $stmt = $pdo->query("SELECT * FROM tasks WHERE status != 'completed' ORDER BY created_at DESC");
 $tasks = $stmt->fetchAll();
 ?>
@@ -41,7 +40,6 @@ $tasks = $stmt->fetchAll();
             <!-- Вкладка активных задач -->
             <div class="tab-pane fade show active" id="nav-active-tasks" role="tabpanel">
 
-
                 <!-- Форма добавления новой задачи -->
                 <form action="task_manager.php" method="post">
                     <div class="input-group">
@@ -67,7 +65,7 @@ $tasks = $stmt->fetchAll();
                         $totalSubtasks = count($subtasks);
                         $completedSubtasks = count(array_filter($subtasks, fn($subtask) => $subtask['status'] == 'completed'));
 
-                        // Рассчитываем прогресс
+                        // прогресс
                         $progress = ($totalSubtasks > 0) ? round(($completedSubtasks / $totalSubtasks) * 100, 1) : ($task['status'] == 'completed' ? 100 : 0);
                         ?>
                         <div class="card">

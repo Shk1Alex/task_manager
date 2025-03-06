@@ -1,5 +1,5 @@
 <?php
-require 'db.php'; // Подключение к базе данных
+require 'db.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['task_name'])) {
     $taskName = trim($_POST['task_name']);
