@@ -121,14 +121,18 @@ $tasks = $stmt->fetchAll();
                                             <li class="list-group-item <?php echo $subtask['status'] === 'completed' ? '' : ''; ?>">
 
                                                 <!-- Кнопка переключения статуса -->
-                                                <?php if ($subtask['status'] === 'completed'): ?>
-                                                    <a href="change_subtask_status.php?id=<?= $subtask['id'] ?>&status=created" class="text-dark">
-                                                        <i class="fa-solid fa-square-check text-success checkbox-icon"></i> <!-- Активный чекбокс ✅ -->
-                                                    </a>
+                                                <?php if ($task['status'] === 'in_progress'): ?>
+                                                    <?php if ($subtask['status'] === 'completed'): ?>
+                                                        <a href="change_subtask_status.php?id=<?= $subtask['id'] ?>&status=created" class="text-dark">
+                                                            <i class="fa-solid fa-square-check text-success checkbox-icon"></i> <!-- Активный чекбокс ✅ -->
+                                                        </a>
+                                                    <?php else: ?>
+                                                        <a href="change_subtask_status.php?id=<?= $subtask['id'] ?>&status=completed" class="text-dark">
+                                                            <i class="fa-regular fa-square checkbox-icon"></i> <!-- Неактивный чекбокс ⬜ -->
+                                                        </a>
+                                                    <?php endif; ?>
                                                 <?php else: ?>
-                                                    <a href="change_subtask_status.php?id=<?= $subtask['id'] ?>&status=completed" class="text-dark">
-                                                        <i class="fa-regular fa-square checkbox-icon"></i> <!-- Неактивный чекбокс ⬜ -->
-                                                    </a>
+                                                    <i class="fa-regular fa-square checkbox-icon text-muted"></i> <!-- Заблокированный чекбокс -->
                                                 <?php endif; ?>
 
                                                 <!-- Название субтаска -->
